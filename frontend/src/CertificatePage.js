@@ -1,8 +1,15 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const CertificatePage = () => {
-  const { id } = useParams();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get("q");
+
+  useEffect(() => {
+    // Set document title to the full URL path
+    document.title = window.location.href;
+  }, []);
 
   const handleViewCertificate = () => {
     window.open(`${process.env.PUBLIC_URL}/certificates/${id}.pdf`, "_blank");
@@ -10,7 +17,11 @@ const CertificatePage = () => {
 
   return (
     <div
-      style={{ position: "relative", height: "100vh", backgroundColor: "#fff" }}
+      style={{
+        position: "relative",
+        height: "100vh",
+        backgroundColor: "#fff",
+      }}
     >
       <button
         onClick={handleViewCertificate}
@@ -25,13 +36,13 @@ const CertificatePage = () => {
           borderRadius: "8px",
           textDecoration: "none",
           display: "inline-block",
-          width: "200px", // ⬅️ Increased width
+          width: "200px",
           fontSize: "16px",
           fontFamily: "Times New Roman, serif",
           fontWeight: "bold",
           border: "none",
           cursor: "pointer",
-          whiteSpace: "nowrap", // ⬅️ Prevents text wrapping
+          whiteSpace: "nowrap",
           textAlign: "center",
         }}
       >
