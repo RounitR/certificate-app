@@ -1,12 +1,25 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const CertificatePage = () => {
-  const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const certId = searchParams.get("q");
+
+  // Map certificate IDs to Google Drive file IDs
+  const certificateMap = {
+    NPTEL123: "1kckPc4gX8tfVcnSUhrbaw3tl8FDOC13G",
+    NPTEL456: "1-2drQtnPED3Dz3VndL3kYC3acGuUpFtC",
+    NPTEL789: "1TZfgszKjUJb0jtl4mgE37gFwMbzisQQW",
+  };
 
   const handleViewCertificate = () => {
-    window.open(`${process.env.PUBLIC_URL}/certificates/${id}.pdf`, "_blank");
-
+    const fileId = certificateMap[certId];
+    if (fileId) {
+      const pdfUrl = `https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?export=download&id=${fileId}`;
+      window.open(pdfUrl, "_blank");
+    } else {
+      alert("Certificate not found.");
+    }
   };
 
   return (
@@ -26,13 +39,13 @@ const CertificatePage = () => {
           borderRadius: "8px",
           textDecoration: "none",
           display: "inline-block",
-          width: "200px", // ⬅️ Increased width
+          width: "200px",
           fontSize: "16px",
           fontFamily: "Times New Roman, serif",
           fontWeight: "bold",
           border: "none",
           cursor: "pointer",
-          whiteSpace: "nowrap", // ⬅️ Prevents text wrapping
+          whiteSpace: "nowrap",
           textAlign: "center",
         }}
       >
