@@ -5,7 +5,8 @@ const CertificatePage = () => {
   const { id } = useParams();
 
   const handleViewCertificate = () => {
-    window.open(`/certificates/${id}.pdf`, "_blank");
+    window.open(`${process.env.PUBLIC_URL}/certificates/${id}.pdf`, "_blank");
+
   };
 
   return (
