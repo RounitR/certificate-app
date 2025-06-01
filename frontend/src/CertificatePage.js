@@ -37,7 +37,7 @@ const CertificatePage = () => {
           textDecoration: "none",
           display: "inline-block",
           width: "200px",
-          fontSize: "16px",
+          fontSize: "15px",
           fontFamily: "Times New Roman, serif",
           fontWeight: "bold",
           border: "none",
