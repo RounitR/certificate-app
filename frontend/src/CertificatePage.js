@@ -21,13 +21,13 @@ const CertificatePage = () => {
           transform: "translate(-50%, -50%)",
           backgroundColor: "#3070bf",
           color: "white",
-          padding: "10px 20px",
+          padding: "12px 30px",
           borderRadius: "8px",
           textDecoration: "none",
           display: "inline-block",
-          width: "180px", // ⬅️ Increased width
-          fontSize: "12px",
-          fontFamily: "Georgia, serif",
+          width: "200px", // ⬅️ Increased width
+          fontSize: "16px",
+          fontFamily: "Times New Roman, serif",
           fontWeight: "bold",
           border: "none",
           cursor: "pointer",
