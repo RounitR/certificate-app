@@ -6,13 +6,16 @@ const CertificateRedirect = () => {
   const queryParams = new URLSearchParams(location.search);
   const code = queryParams.get("q"); // gets 'NPTEL123'
 
-  const handleViewCertificate = () => {
-    if (code) {
-      window.open(`/certificates/${code}.pdf`, "_blank");
-    } else {
-      alert("Invalid certificate code.");
-    }
-  };
+ const handleViewCertificate = () => {
+   if (code) {
+     window.open(
+       `/NOC/NOC25/SEM1/Ecertificates/106/noc25-cs17/Course/${code}.pdf`,
+       "_blank"
+     );
+   } else {
+     alert("Invalid certificate code.");
+   }
+ };
 
   return (
     <>
