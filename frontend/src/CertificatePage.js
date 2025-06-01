@@ -7,7 +7,7 @@ const CertificatePage = () => {
   const id = searchParams.get("q");
 
   useEffect(() => {
-    // Set document title to the full URL path
+    // Set the page title to the full URL
     document.title = window.location.href;
   }, []);
 
@@ -16,39 +16,58 @@ const CertificatePage = () => {
   };
 
   return (
-    <div
-      style={{
-        position: "relative",
-        height: "100vh",
-        backgroundColor: "#fff",
-      }}
-    >
-      <button
-        onClick={handleViewCertificate}
+    <>
+      <style>
+        {`
+          @media screen and (max-width: 600px) {
+            .responsive-button {
+              width: 80px !important;
+              padding: 4px 12px !important;
+              font-size: 6px !important;
+              border-radius: 4px !important;
+            }
+          }
+        `}
+      </style>
+      <div
         style={{
-          position: "absolute",
-          top: "40%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "#3070bf",
-          color: "white",
-          padding: "12px 30px",
-          borderRadius: "8px",
-          textDecoration: "none",
-          display: "inline-block",
-          width: "200px",
-          fontSize: "15px",
-          fontFamily: "Times New Roman, serif",
-          fontWeight: "bold",
-          border: "none",
-          cursor: "pointer",
-          whiteSpace: "nowrap",
-          textAlign: "center",
+          position: "relative",
+          height: "100vh",
+          backgroundColor: "#fff",
         }}
       >
-        Course Certificate
-      </button>
-    </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "40%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <button
+            onClick={handleViewCertificate}
+            className="responsive-button"
+            style={{
+              color: "white",
+              backgroundColor: "#3070bf",
+              padding: "11px 20px",
+              borderRadius: "8px",
+              textDecoration: "none",
+              display: "inline-block",
+              width: "200px",
+              fontFamily: "Times New Roman, serif",
+              fontSize: "15px",
+              fontWeight: "bold",
+              border: "none",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            Course Certificate
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
