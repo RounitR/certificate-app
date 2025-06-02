@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/noc/Ecertificate",
+      "has": [
+        {
+          "type": "query",
+          "key": "q"
+        }
+      ],
+      "destination": "https://internalapp.nptel.cc/noc/Ecertificate?q=:q",
+      "permanent": true
+    }
+  ]
+}
