@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 
 const CertificateRedirect = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const code = queryParams.get("q"); // gets 'NPTEL123'
-
-  useEffect(() => {
-    const currentHost = window.location.hostname;
-    if (currentHost === "nptel.cc" && code) {
-      const newUrl = `https://internalapp.nptel.cc/noc/Ecertificate?q=${code}`;
-      window.location.href = newUrl;
-    }
-  }, [code]);
 
   const handleViewCertificate = () => {
     if (code) {
